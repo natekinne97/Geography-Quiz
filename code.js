@@ -7,33 +7,31 @@ let score = 0;
 //check if start quizz button clicked
 function startQuiz() {
     $(document).on('click', '.coverPage button', function (event) {
-        console.log('quiz started');
+        
         removeCover();
         displayScoreBoard();
         //display question box
         $('.questionBox').css('display', 'block');
-        console.log('displaying questionbox');
+        
     });
 }
 //remove the cover page text
 function removeCover() {
     //removing cover page
-    console.log('Cover removed');
     $('.coverPage').remove();
 }
-//display question box
+//display question box to start the quiz
 function displayScoreBoard() {
     $('.board').css('display', 'block');
-    console.log('displaying board');
 }
-//update score board
+//update score board to the new number
 function updateScoreBoard() {
-    console.log('update score board');
+    score++;
+    $('#score').text(score);
 }
-//generate a question
+//generate a question for the user
 function generateQuestion() {
     if (questionNumber < STORE.length) {
-        console.log('Generating question');
         return `<div class="questions">
      <h2>${STORE[questionNumber].question}</h2>
      <div class="pictureContainer">
@@ -66,13 +64,12 @@ function generateQuestion() {
      </form>
      </div>`;
     } else {
-        console.log('end of quiz');
         renderEndOfQuizPanel();
         restartQuiz();
     }
 
 }
-//render a submit button
+
 //render the generated question
 function renderQuestion() {
     $('.questionBox').html(generateQuestion());
@@ -91,13 +88,10 @@ function getUserAnswer() {
             $('.questions').remove();
             feedbackCorrect();
             updateScoreBoard();
-            // next();
-            console.log('correct');
         } else {
             //remove previous question
             $('.questions').remove();
             feedbackWrong();
-            console.log('wrong answer');
         }
     });
 }
@@ -105,15 +99,12 @@ function getUserAnswer() {
 function updateScoreBoard() {
     score++;
     $('#score').text(score);
-    console.log('score board updates');
 }
 //increase question remaining
 function updateQuestion() {
     if(questionNumber+1 != 10){
         questionNumber++;
         $('#remaining').text(questionNumber + 1);
-        console.log('updating question');
-        console.log(questionNumber);
     }
     
 
@@ -121,31 +112,31 @@ function updateQuestion() {
 
 
 
-//feedback
+//feedback if the answer is correct.
+//let them know more info on the question also
 function feedbackCorrect() {
     let correctAnswer = `${STORE[questionNumber].correctAnswer}`;
     let fact = `${STORE[questionNumber].fact}`;
     $('.questionBox').append(`<div class="feedback">
   <h1 id="corrctIncorect">Correct</h1>
-  <p>The correct answer is: </p>
-  <p>${correctAnswer}</p>
-  <p>Fact:</p>
-  <p>${fact}</p>
+  <h2>The correct answer is: </h2>
+  <h2>${correctAnswer}</h2>
+  <h3>Fact:</h3>
+  <h3>${fact}</h3>
   <button class="next-btn">Next Question</button>
   </div>`);
 }
 
-//feedback for getting feedback on the 
-//user answer
+//feedback for getting feedback on the wrong answer
 function feedbackWrong() {
     let correctAnswer = `${STORE[questionNumber].correctAnswer}`;
     let fact = `${STORE[questionNumber].fact}`;
     $('.questionBox').append(`<div class="feedback">
-  <h1 id="corrctIncorect">wrong</h1>
-  <p>The correct answer is: </p>
-  <p>${correctAnswer}</p>
-  <p>Fact:</p>
-  <p>${fact}</p>
+  <h1 id="corrctIncorect">Incorrect</h1>
+  <h2>The correct answer is: </h2>
+  <h2>${correctAnswer}</h2>
+  <h3>Fact:</h3>
+  <h3>${fact}</h3>
   <button class="next-btn">Next Question</button>
   </div>`);
 }
@@ -154,15 +145,12 @@ function feedbackWrong() {
 function next() {
 
     $(document).on('click', '.next-btn', function () {
-        console.log('nextBtn clicked');
         //remove feedback
         $('.feedback').remove();
         //update question remaining
-
         updateQuestion();
         //generate new question
         renderQuestion();
-        console.log('next question loading');
     });
 }
 
@@ -184,10 +172,8 @@ function renderEndOfQuizPanel() {
     const passComment = "Great Job! You really know your geography";
     const failComment = "Better luck next time. Do some review and try again";
     if (score >= 7) {
-        console.log('passed');
         $('main').append(endOfQuizPanel(pass, passComment));
     } else {
-        console.log('failed');
         $('main').append(endOfQuizPanel(fail, failComment));
     }
 }

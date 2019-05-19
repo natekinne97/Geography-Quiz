@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Geography Quiz</title>
+    <meta name="description" content="This is a simple quiz app testing on car make and model knowledge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="store.js"></script>
+    <script src="code.js"></script>
+</head>
+
+<body>
+    <!-- quiz header and cover -->
+    <section>
+        <div class="coverPage">
+            <h1>Geography Quiz</h1>
+            <h2>Are you confident in your geography skills?</h2>
+            <h2>Click that start button and put your knowledge to the test!</h2>
+            <button id="start">Start Quiz</button>
+        </div>
+    </section>
+    <main>
+        <!-- Question count and score -->
+        <div class="board">
+            <ul>
+                <!-- questions remaining -->
+                <li>Question: <span id="remaining">1</span>/10</li>
+                <!-- Correct answers -->
+                <li>Score: <span id="score">0</span>/10</li>
+            </ul>
+        </div>
+        <!-- question box -->
+        <div class="questionBox">
+        </div>
+    </main>
+
+</body>
+
+</html>

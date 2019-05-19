@@ -109,10 +109,13 @@ function updateScoreBoard() {
 }
 //increase question remaining
 function updateQuestion() {
-    questionNumber++;
-    $('#remaining').text(questionNumber + 1);
-    console.log('updating question');
-    console.log(questionNumber);
+    if(questionNumber+1 != 10){
+        questionNumber++;
+        $('#remaining').text(questionNumber + 1);
+        console.log('updating question');
+        console.log(questionNumber);
+    }
+    
 
 }
 

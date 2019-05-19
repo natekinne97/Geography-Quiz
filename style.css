@@ -10,7 +10,7 @@ body{
   background-size: cover;
   text-align: center;
 
-  padding: 15px;
+  padding: 5px;
 }
 
 /* cover page */
@@ -69,7 +69,7 @@ ul {
 
 /* question image */
 img{
-  width: 45%;
+  width: 95%;
   border: 4px solid white;
 }
 
@@ -86,7 +86,8 @@ fieldset{
 label{
   border: 1px solid black;
   color: white;
-  width: 45%;
+  width: 100%;
+  
   height: 65px;
   font-size: 40px;
   cursor: pointer;
@@ -94,13 +95,6 @@ label{
   display: block;
   margin: 0 auto;
   
-}
-
-
-label:hover{
-  background-color: #111e6c;
-  font-size: 50px;
-  font-weight: bold;
 }
 
 label:active, input:focus {
@@ -139,6 +133,8 @@ input {
     margin-right: 5px;
     position: relative;
     top: 2px;
+    display: flex;
+    align-self: flex-start;
 }
 input:checked {
     border: 8px solid#F79862;
@@ -149,7 +145,7 @@ input[type=radio] {
 }
 
 button{
-  width: 45%;
+  width: 100%;
   height: 50px;
   padding-bottom: 5px;
   background: #4682B4;
@@ -158,21 +154,17 @@ button{
   cursor: pointer;
 }
 
-button:hover{
-  border: 2px solid black;
-  background-color: #73C2FB;
-}
-
 /* next button making wider */
 .next-btn{
   width: 100%;
+  height:100px;
   border-radius: 5%;
 }
 
 /* feedback */
 .feedback{
   /* sizing */
-  width: 50%;
+  width: 100%;
   border: 1px solid black;
   border-radius: 5%;
   background-color: cornflowerblue;
@@ -186,10 +178,56 @@ button:hover{
 .review{
   border: 1px solid black;
   border-radius: 5%;
-  width: 50%;
+  width: 100%;
   padding: 10px;
   background: linear-gradient(to bottom, rgba(15, 82, 186, 1) 0%, rgba(0, 128, 155, 1) 100%);
   /* postion */
   display: block;
   margin: auto;
+}
+
+
+/* 
+Desktop implementation
+*/
+@media screen and (min-width: 1044px){
+    body{
+        margin: 15px;
+    }
+    
+    /* img width */
+    img{
+        width: 45%;
+    }
+    /* button sizing */
+    button{
+        width: 45%;
+    }
+    /* button hover added */
+        
+    button:hover{
+    border: 2px solid black;
+    background-color: #73C2FB;
+    }
+
+    /* label hover */
+    label:hover{
+    background-color: #111e6c;
+    font-size: 50px;
+    font-weight: bold;
+    }
+    /* resize labels */
+    label{
+        width: 45%; 
+    }
+
+    /* feedback size */
+    .feedback{
+        width: 50%;
+    }
+    /* review sizing */
+    .review{
+        width: 50%;
+    }
+
 }

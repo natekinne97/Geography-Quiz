@@ -205,10 +205,14 @@ Desktop implementation
     body{
         margin: 15px;
     }
-    
+    /* quesiont fontsize */
+    .questions h2{
+        font-size: 50px;
+    }
+
     /* img width */
     img{
-        width: 45%;
+        width: 30%;
     }
     /* button sizing */
     button{
@@ -230,6 +234,7 @@ Desktop implementation
     /* resize labels */
     label{
         width: 45%; 
+        
     }
 
     /* feedback size */

@@ -84,6 +84,7 @@ const STORE = [
         ],
         correctAnswer: 'Vatican City',
         fact: 'Vatican City is the smallest Country at only 109 acres. It got its current size from the Lateran treaty of 1929. And if you did not know Vatican means palace of the popes', picture: 'https://i.imgur.com/VLZyzEe.jpg',
+        picture: 'https://i.imgur.com/EfsVQGo.jpg',
         alt: 'Vatican City'
     },
     {
@@ -94,7 +95,7 @@ const STORE = [
         ],
         correctAnswer: '4',
         fact: 'Africa spans every single hemisphere.',
-        picture: 'https://i.imgur.com/n7vqaxz.jpg',
+        picture: 'https://i.imgur.com/2OflGyV.jpg',
         alt: 'africa outline'
     },
     {
@@ -105,7 +106,7 @@ const STORE = [
         ],
         correctAnswer: 'Saudi Arabia',
         fact: 'Saudi Arabia is so dry it does not contain any rivers at all.',
-        picture: 'https://i.pinimg.com/474x/50/8a/49/508a497ecc16ff3c68041fe147595320--desert-sunset-desert-sahara.jpg',
+        picture: 'https://i.imgur.com/JhxORDi.jpg',
         alt: 'Sandy Desert'
     }
 

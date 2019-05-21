@@ -67,7 +67,6 @@ function generateQuestion() {
      </form>
      </div>`;
     } else {
-        console.log('end of quiz');
         renderEndOfQuizPanel();
         restartQuiz();
     }
@@ -109,16 +108,9 @@ function updateScoreBoard() {
 }
 //increase question remaining
 function updateQuestion() {
-    if(questionNumber+1 < 10){
-        questionNumber++;
+    if(++questionNumber < 10){
         $('#remaining').text(questionNumber + 1);
-        console.log('updating number');
-        console.log(questionNumber);
-    }else{
-        console.log('quiz finished but not running');
-        questionNumber++;
     }
-    
 }
 
 //feedback if the answer is correct.
@@ -176,7 +168,6 @@ function endOfQuizPanel(passFail, comment) {
 
 //render end of quiz panel check if passed and add comment
 function renderEndOfQuizPanel() {
-    console.log('end of quiz thing');
     const pass = 'Passed Quiz';
     const fail = 'Failed Quiz';
     const passComment = "Great Job! You really know your geography";
@@ -190,9 +181,7 @@ function renderEndOfQuizPanel() {
 
 //restart quiz
 function restartQuiz() {
-    console.log('restart called');
     $(document).on('click', '.restart', function () {
-        console.log('loading');
         location.reload();
     });
 }

@@ -40,22 +40,22 @@ function generateQuestion() {
      <form>
         <fieldset>
           <label class="answerOption first-answer">
-            <input type="radio" value="${STORE[questionNumber].answers[0]}" name="answer">
+            <input type="radio" value="${STORE[questionNumber].answers[0]}" name="answer" required>
             <span>${STORE[questionNumber].answers[0]}</span>
           </label>
 
           <label class="answerOption second-answer">
-            <input type="radio" value="${STORE[questionNumber].answers[1]}" name="answer">
+            <input type="radio" value="${STORE[questionNumber].answers[1]}" name="answer" required>
             <span>${STORE[questionNumber].answers[1]}</span>
           </label>
 
           <label class="answerOption third-answer">
-            <input type="radio" value="${STORE[questionNumber].answers[2]}" name="answer">
+            <input type="radio" value="${STORE[questionNumber].answers[2]}" name="answer" required>
             <span>${STORE[questionNumber].answers[2]}</span>
           </label>
 
           <label class="answerOption fourth-answer">
-            <input type="radio" value="${STORE[questionNumber].answers[3]}" name="answer">
+            <input type="radio" value="${STORE[questionNumber].answers[3]}" name="answer" required>
             <span>${STORE[questionNumber].answers[3]}</span>
           </label>
 
@@ -64,6 +64,7 @@ function generateQuestion() {
      </form>
      </div>`;
     } else {
+        console.log('end of quiz');
         renderEndOfQuizPanel();
         restartQuiz();
     }
@@ -74,6 +75,7 @@ function generateQuestion() {
 function renderQuestion() {
     $('.questionBox').html(generateQuestion());
 }
+
 
 //submit clicked
 //check if answer is correct
@@ -95,6 +97,8 @@ function getUserAnswer() {
         }
     });
 }
+
+
 //increase score
 function updateScoreBoard() {
     score++;
@@ -102,15 +106,17 @@ function updateScoreBoard() {
 }
 //increase question remaining
 function updateQuestion() {
-    if(questionNumber+1 != 10){
+    if(questionNumber+1 < 10){
         questionNumber++;
         $('#remaining').text(questionNumber + 1);
+        console.log('updating number');
+        console.log(questionNumber);
+    }else{
+        console.log('quiz finished but not running');
+        questionNumber++;
     }
     
-
 }
-
-
 
 //feedback if the answer is correct.
 //let them know more info on the question also
@@ -167,6 +173,7 @@ function endOfQuizPanel(passFail, comment) {
 
 //render end of quiz panel check if passed and add comment
 function renderEndOfQuizPanel() {
+    console.log('end of quiz thing');
     const pass = 'Passed Quiz';
     const fail = 'Failed Quiz';
     const passComment = "Great Job! You really know your geography";
@@ -180,7 +187,9 @@ function renderEndOfQuizPanel() {
 
 //restart quiz
 function restartQuiz() {
+    console.log('restart called');
     $(document).on('click', '.restart', function () {
+        console.log('loading');
         location.reload();
     });
 }

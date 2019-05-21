@@ -33,11 +33,14 @@ function updateScoreBoard() {
 function generateQuestion() {
     if (questionNumber < STORE.length) {
         return `<div class="questions">
-     <h2>${STORE[questionNumber].question}</h2>
-     <div class="pictureContainer">
-      <img src="${STORE[questionNumber].picture}" alt="${STORE[questionNumber].alt}">
-     </div>
+     
      <form>
+        <legend>
+        <h2>${STORE[questionNumber].question}</h2>
+        <div class="pictureContainer">
+        <img src="${STORE[questionNumber].picture}" alt="${STORE[questionNumber].alt}">
+        </div>
+        </legend>
         <fieldset>
           <label class="answerOption first-answer">
             <input type="radio" value="${STORE[questionNumber].answers[0]}" name="answer" required>
